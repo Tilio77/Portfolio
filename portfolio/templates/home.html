@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% load static %}
+
+<header class="row bg-black">
+	<div class="col-md-4">
+		<img src="{% static 'portfolio/profile.jpeg' %}">
+	</div>
+	<div class="col-md-8 my-auto">
+		<h1>I am <strong>Valentín</strong></h1>
+		<h3>I am a Python FullStack Developer</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere malesuada dolor quis lobortis. Vestibulum a enim a turpis dignissim eleifend. Donec suscipit, diam et bibendum pulvinar, ex elit aliquam velit, eget porttitor velit arcu a elit. Ut aliquam metus at euismod fermentum. Sed ac sapien vehicula, elementum urna ac, rhoncus justo. Fusce vel leo id nunc consectetur auctor vel id odio. Sed a odio sed turpis bibendum porta. Quisque tincidunt aliquet dapibus. Praesent consequat, arcu sed rutrum scelerisque, felis leo consectetur lectus, ut facilisis ante erat sed ex. Aliquam erat volutpat. Duis tempus nibh id dolor fringilla pulvinar. Etiam in lacinia sapien. Vivamus hendrerit ligula in blandit tempus. Donec iaculis nisl sed dui iaculis, in pellentesque felis pulvinar.</p>
+		<a href="{% static 'portfolio/Yo.jpg' %}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+	</div>
+</header>
+
+<div class="row my-4 text-center">
+	<h3>My projects</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, illum?</p>
+
+{% for project in projects %}
+
+<div class="col-md-4 p-4">
+	<div class="card-bg-black card-project">
+		<img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top"/>
+		<div class="card-body">
+		<h2>{{project.title}}</h2>
+		<p>{{project.description}}</p>
+		{% if project.url %}
+			<a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+		{% endif %}
+		</div>
+	</div>
+</div>	
+
+{% endfor %}
+
+{% endblock %}
+</div>
